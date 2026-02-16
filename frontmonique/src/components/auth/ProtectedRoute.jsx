@@ -26,3 +26,4 @@ const ProtectedRoute = ({ children }) => {
 
 // Export component for use in route configuration
 export default ProtectedRoute;
+
