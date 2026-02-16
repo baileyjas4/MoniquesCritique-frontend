@@ -1,0 +1,122 @@
+/* Updated: Full width place details v2 */
+.place-details {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin: 0 !important;
+  padding: 40px 5% !important;
+  min-height: calc(100vh - 200px);
+  box-sizing: border-box !important;
+}
+
+.place-details-header {
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.place-details-header h1 {
+  font-size: 36px;
+  color: var(--dark-color);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.place-category {
+  display: inline-block;
+  padding: 6px 16px;
+  background-color: rgba(99, 102, 241, 0.1);
+  color: var(--primary-color);
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.place-details-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.place-info-section,
+.place-description-section,
+.place-reviews-section {
+  background: white;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border-color);
+}
+
+.place-info-section h2,
+.place-description-section h2,
+.place-reviews-section h2 {
+  font-size: 24px;
+  color: var(--dark-color);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.place-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.info-label {
+  font-weight: 600;
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+.info-value {
+  font-size: 18px;
+  color: var(--dark-color);
+  font-weight: 500;
+}
+
+.place-description-section p {
+  color: var(--text-color);
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.no-place {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.no-place h2 {
+  font-size: 28px;
+  color: var(--dark-color);
+  margin-bottom: 12px;
+}
+
+.no-place p {
+  color: var(--text-light);
+  font-size: 16px;
+}
+
+/* Mobile responsive */
+@media (max-width: 767px) {
+  .place-details-header h1 {
+    font-size: 28px;
+  }
+
+  .place-info-section,
+  .place-description-section,
+  .place-reviews-section {
+    padding: 20px;
+  }
+
+  .place-info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
