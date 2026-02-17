@@ -1,0 +1,28 @@
+.review-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-list-loading,
+.review-list-error,
+.review-list-empty {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.review-list-error {
+  color: #dc2626;
+  background: #fee;
+  border-radius: 8px;
+}
+
+.review-list-empty {
+  color: #666;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.review-list-empty p,
+.review-list-error p {
+  margin: 0;
+}

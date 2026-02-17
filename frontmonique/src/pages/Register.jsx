@@ -22,8 +22,18 @@ const Register = () => {
       return;
     }
 
-    if (password.length < 6) {
-      setError('Password must be at least 6 characters');
+    if (password.length < 8) {
+      setError('Password must be at least 8 characters');
+      return;
+    }
+
+    if (!/\d/.test(password)) {
+      setError('Password must contain at least one number');
+      return;
+    }
+
+    if (!/[a-zA-Z]/.test(password)) {
+      setError('Password must contain at least one letter');
       return;
     }
 
@@ -76,8 +86,11 @@ const Register = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
               placeholder="Enter your password"
-              minLength="6"
+              minLength="8"
             />
+            <small style={{ display: 'block', marginTop: '0.25rem', color: '#666', fontSize: '13px' }}>
+              Must be at least 8 characters and contain at least one letter and one number
+            </small>
           </div>
           <div className="form-group">
             <label htmlFor="confirmPassword">Confirm Password</label>
@@ -88,7 +101,7 @@ const Register = () => {
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
               placeholder="Confirm your password"
-              minLength="6"
+              minLength="8"
             />
           </div>
           <button type="submit" className="btn btn-primary" disabled={loading}>

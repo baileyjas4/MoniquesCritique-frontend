@@ -22,7 +22,7 @@ const PlaceList = ({ places, loading }) => {
   return (
     <div className="place-list">
       {places.map((place) => (
-        <PlaceCard key={place._id} place={place} />
+        <PlaceCard key={place._id} place={place} source="search" />
       ))}
     </div>
   );

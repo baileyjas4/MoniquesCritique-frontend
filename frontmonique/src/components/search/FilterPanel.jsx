@@ -8,6 +8,15 @@ const FilterPanel = ({ onFilterChange, initialFilters = {} }) => {
     priceRange: initialFilters.priceRange || '',
   });
 
+  // Update local state when initialFilters changes (e.g., when navigating back)
+  useEffect(() => {
+    setFilters({
+      category: initialFilters.category || '',
+      location: initialFilters.location || '',
+      priceRange: initialFilters.priceRange || '',
+    });
+  }, [initialFilters.category, initialFilters.location, initialFilters.priceRange]);
+
   useEffect(() => {
     onFilterChange(filters);
   }, [filters]);
@@ -55,9 +64,9 @@ const FilterPanel = ({ onFilterChange, initialFilters = {} }) => {
           <option value="">All Categories</option>
           <option value="restaurant">Restaurant</option>
           <option value="cafe">Cafe</option>
+          <option value="coffee_shop">Coffee Shop</option>
           <option value="bar">Bar</option>
-          <option value="bakery">Bakery</option>
-          <option value="food-truck">Food Truck</option>
+          <option value="other">Other</option>
         </select>
       </div>
 
@@ -83,7 +92,6 @@ const FilterPanel = ({ onFilterChange, initialFilters = {} }) => {
           <option value="$">$ - Budget</option>
           <option value="$$">$$ - Moderate</option>
           <option value="$$$">$$$ - Upscale</option>
-          <option value="$$$$">$$$$ - Fine Dining</option>
         </select>
       </div>
     </div>

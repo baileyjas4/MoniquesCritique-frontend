@@ -1,11 +1,29 @@
 import { useNavigate } from 'react-router-dom';
+import { MdFavorite, MdFavoriteBorder, MdLocationOn } from 'react-icons/md';
+import CategoryIcon from '../common/CategoryIcon';
 import './PlaceCard.css';
 
-const PlaceCard = ({ place }) => {
+const PlaceCard = ({ place, isFavorite, onToggleFavorite, source, sourceTab }) => {
   const navigate = useNavigate();
+  
+  // Handle both database places (_id) and external places (externalId)
+  const placeId = place._id || place.externalId;
+  const isExternal = !place._id && place.externalId;
 
   const handleClick = () => {
-    navigate(`/places/${place._id}`);
+    if (isExternal) {
+      // For external places, navigate to a preview page or import first
+      navigate(`/places/external/${place.externalId}`);
+    } else {
+      navigate(`/places/${place._id}`, { state: { from: source, tab: sourceTab } });
+    }
+  };
+
+  const handleFavoriteClick = (e) => {
+    e.stopPropagation();
+    if (onToggleFavorite && !isExternal) {
+      onToggleFavorite(place._id);
+    }
   };
 
   const renderStars = (rating) => {
@@ -25,15 +43,33 @@ const PlaceCard = ({ place }) => {
     return stars.join('');
   };
 
+  const imageUrl = place.images?.[0] || place.photos?.[0];
+
   return (
     <div className="place-card" onClick={handleClick}>
+      {onToggleFavorite && !isExternal && (
+        <button
+          className={`favorite-icon ${isFavorite ? 'active' : ''}`}
+          onClick={handleFavoriteClick}
+          aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+        >
+          {isFavorite ? <MdFavorite size={24} /> : <MdFavoriteBorder size={24} />}
+        </button>
+      )}
       <div className="place-card-image">
-        {place.category === 'restaurant' && '🍽️'}
-        {place.category === 'cafe' && '☕'}
-        {place.category === 'bar' && '🍸'}
-        {place.category === 'bakery' && '🥐'}
-        {place.category === 'food-truck' && '🚚'}
-        {!['restaurant', 'cafe', 'bar', 'bakery', 'food-truck'].includes(place.category) && '🍴'}
+        {imageUrl ? (
+          <img 
+            src={imageUrl} 
+            alt={place.name}
+            onError={(e) => {
+              e.target.style.display = 'none';
+              e.target.parentElement.querySelector('.place-card-icon-fallback').style.display = 'flex';
+            }}
+          />
+        ) : null}
+        <div className="place-card-icon-fallback" style={{ display: imageUrl ? 'none' : 'flex' }}>
+          <CategoryIcon category={place.category} size={48} />
+        </div>
       </div>
       <div className="place-card-content">
         <div className="place-card-header">
@@ -42,7 +78,7 @@ const PlaceCard = ({ place }) => {
         </div>
 
         <div className="place-card-location">
-          <span>📍</span>
+          <MdLocationOn size={18} />
           <span>{place.location?.city || 'Location not specified'}</span>
         </div>
 

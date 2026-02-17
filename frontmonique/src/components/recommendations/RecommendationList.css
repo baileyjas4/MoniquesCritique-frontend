@@ -1,0 +1,89 @@
+.recommendation-list {
+  width: 100%;
+}
+
+.recommendation-list-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.recommendation-list-header h2 {
+  margin: 0 0 0.5rem 0;
+  color: #333;
+  font-size: 2rem;
+}
+
+.recommendation-list-header p {
+  margin: 0;
+  color: #666;
+  font-size: 1rem;
+}
+
+.recommendation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.recommendation-list-loading {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.recommendation-list-loading p {
+  margin-top: 1rem;
+  color: #666;
+  font-size: 1rem;
+}
+
+.recommendation-list-error {
+  padding: 3rem 2rem;
+  text-align: center;
+  background: #fee;
+  border-radius: 8px;
+}
+
+.recommendation-list-error p {
+  margin: 0;
+  color: #dc2626;
+}
+
+.recommendation-list-empty {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: #f9fafb;
+  border-radius: 12px;
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.recommendation-list-empty h3 {
+  margin: 0 0 0.75rem 0;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.recommendation-list-empty p {
+  margin: 0;
+  color: #666;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .recommendation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .recommendation-list-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .empty-icon {
+    font-size: 3rem;
+  }
+}

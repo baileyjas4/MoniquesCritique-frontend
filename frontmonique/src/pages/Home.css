@@ -1,7 +1,9 @@
 .home {
-  padding: 40px 5%;
-  width: 100%;
-  max-width: 100%;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin: 0 !important;
+  padding: 40px 5% !important;
+  box-sizing: border-box !important;
 }
 
 .hero {
@@ -174,5 +176,17 @@
 
   .features-grid {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.recommendations-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+@media (max-width: 768px) {
+  .recommendations-section {
+    padding: 2rem 1rem;
   }
 }

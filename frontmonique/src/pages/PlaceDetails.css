@@ -8,7 +8,28 @@
   box-sizing: border-box !important;
 }
 
+.back-button {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 0;
+  margin-bottom: 24px;
+  transition: color 0.2s ease;
+}
+
+.back-button:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
 .place-details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
   margin-bottom: 40px;
   padding-bottom: 24px;
   border-bottom: 2px solid var(--border-color);
@@ -30,6 +51,26 @@
   font-size: 14px;
   font-weight: 600;
   text-transform: capitalize;
+}
+
+.place-photos {
+  margin-bottom: 32px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.place-photo-main {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .place-photo-main {
+    height: 250px;
+  }
 }
 
 .place-details-content {
@@ -120,3 +161,68 @@
   }
 }
 
+
+.favorite-button {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  background: white;
+  color: var(--primary-color);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.favorite-button:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+.favorite-button.active {
+  background: var(--primary-color);
+  color: white;
+}
+
+.reviews-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.reviews-header h2 {
+  margin: 0;
+}
+
+.review-form-container {
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .place-details-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .favorite-button {
+    width: 100%;
+  }
+
+  .reviews-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .reviews-header .btn {
+    width: 100%;
+  }
+}

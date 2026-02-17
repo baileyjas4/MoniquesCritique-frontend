@@ -1,0 +1,46 @@
+.user-favorites {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-favorites h3 {
+  margin: 0 0 1.5rem 0;
+  color: #333;
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.user-favorites-loading,
+.user-favorites-error,
+.user-favorites-empty {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.user-favorites-error {
+  color: #dc2626;
+  background: #fee;
+  border-radius: 8px;
+}
+
+.user-favorites-empty {
+  color: #666;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .user-favorites {
+    padding: 1.5rem;
+  }
+
+  .favorites-grid {
+    grid-template-columns: 1fr;
+  }
+}

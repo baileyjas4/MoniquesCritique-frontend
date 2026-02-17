@@ -1,0 +1,5 @@
+.add-place-page {
+  min-height: calc(100vh - 200px);
+  background-color: #f5f5f5;
+  padding: 2rem 0;
+}

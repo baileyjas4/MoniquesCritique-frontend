@@ -52,6 +52,11 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="navbar-item">
+                <Link to="/settings" className="navbar-link" onClick={closeMenu}>
+                  Settings
+                </Link>
+              </li>
+              <li className="navbar-item">
                 <button onClick={handleLogout} className="navbar-link btn-logout">
                   Logout
                 </button>

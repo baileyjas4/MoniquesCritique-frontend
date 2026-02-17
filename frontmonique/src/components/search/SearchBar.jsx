@@ -1,8 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './SearchBar.css';
 
 const SearchBar = ({ onSearch, initialQuery = '' }) => {
   const [query, setQuery] = useState(initialQuery);
+
+  // Update local state when initialQuery changes (e.g., when navigating back)
+  useEffect(() => {
+    setQuery(initialQuery);
+  }, [initialQuery]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
