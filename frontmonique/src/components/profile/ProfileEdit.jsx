@@ -29,7 +29,8 @@ const ProfileEdit = ({ user, onSave, onCancel }) => {
   const priceRanges = [
     { value: '$', label: 'Budget', icon: '$' },
     { value: '$$', label: 'Moderate', icon: '$$' },
-    { value: '$$$', label: 'Upscale', icon: '$$$' }
+    { value: '$$$', label: 'Upscale', icon: '$$$' },
+    { value: '$$$$', label: 'Luxury', icon: '$$$$' }
   ];
 
   const dietaryOptions = [
@@ -103,7 +104,8 @@ const ProfileEdit = ({ user, onSave, onCancel }) => {
       const uploadFormData = new FormData();
       uploadFormData.append('profilePicture', selectedFile);
       
-      const response = await fetch('http://localhost:5001/api/upload/profile-picture', {
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001/api';
+      const response = await fetch(`${API_URL}/upload/profile-picture`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -117,7 +119,8 @@ const ProfileEdit = ({ user, onSave, onCancel }) => {
       }
       
       const data = await response.json();
-      setFormData({ ...formData, profilePicture: `http://localhost:5001${data.url}` });
+      const baseURL = API_URL.replace('/api', '');
+      setFormData({ ...formData, profilePicture: `${baseURL}${data.url}` });
       setSelectedFile(null);
     } catch (err) {
       setError(err.message || 'Failed to upload image');
