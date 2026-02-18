@@ -1,12 +1,12 @@
 import PlaceCard from './PlaceCard';
+import LoadingSpinner from '../common/LoadingSpinner';
 import './PlaceList.css';
 
 const PlaceList = ({ places, loading }) => {
   if (loading) {
     return (
       <div className="place-list-loading">
-        <div className="loading-spinner"></div>
-        <p>Loading places...</p>
+        <LoadingSpinner />
       </div>
     );
   }

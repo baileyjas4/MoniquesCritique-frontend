@@ -5,18 +5,26 @@
 }
 
 :root {
-  --primary-color: #6366f1;
-  --secondary-color: #8b5cf6;
-  --accent-color: #ec4899;
-  --dark-color: #1e293b;
-  --light-color: #f8fafc;
-  --text-color: #334155;
-  --text-light: #64748b;
-  --border-color: #e2e8f0;
-  --success-color: #10b981;
-  --error-color: #ef4444;
-  --warning-color: #f59e0b;
-  --bg-color: #ffffff;
+  /* Warm, food-inspired color palette */
+  --primary-color: #d97706; /* Warm amber/orange - appetizing */
+  --secondary-color: #ea580c; /* Rich orange - energetic */
+  --accent-color: #dc2626; /* Bold red - passionate */
+  --dark-color: #292524; /* Warm dark brown */
+  --light-color: #fef3c7; /* Warm cream background */
+  --text-color: #44403c; /* Warm dark gray */
+  --text-light: #78716c; /* Warm medium gray */
+  --border-color: #fde68a; /* Soft golden border */
+  --success-color: #16a34a; /* Fresh green */
+  --error-color: #dc2626; /* Alert red */
+  --warning-color: #f59e0b; /* Warm amber */
+  --bg-color: #fffbeb; /* Warm off-white */
+  --card-bg: #ffffff; /* Pure white for cards */
+  
+  /* Food-themed accent colors */
+  --tomato-red: #ef4444;
+  --olive-green: #84cc16;
+  --butter-yellow: #fbbf24;
+  --wine-purple: #a855f7;
   
   /* Spacing */
   --spacing-xs: 0.25rem;
@@ -26,17 +34,17 @@
   --spacing-xl: 2rem;
   --spacing-2xl: 3rem;
   
-  /* Border radius */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  /* Border radius - softer, more organic */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
   --radius-full: 9999px;
   
-  /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+  /* Shadows - warmer tones */
+  --shadow-sm: 0 1px 3px rgba(217, 119, 6, 0.1);
+  --shadow-md: 0 4px 8px rgba(217, 119, 6, 0.15);
+  --shadow-lg: 0 10px 20px rgba(217, 119, 6, 0.2);
+  --shadow-xl: 0 20px 30px rgba(217, 119, 6, 0.25);
   
   /* Transitions */
   --transition-fast: 150ms ease;
@@ -45,14 +53,15 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--text-color);
   line-height: 1.6;
-  background-color: var(--light-color);
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  background-attachment: fixed;
 }
 
 /* Focus styles for accessibility */
@@ -161,20 +170,6 @@ body {
   color: var(--text-color);
 }
 
-.spinner {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  border: 4px solid var(--border-color);
-  border-top-color: var(--primary-color);
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
 /* Alert styles */
 .alert {
   padding: var(--spacing-md);
@@ -211,15 +206,18 @@ body {
 
 /* Card styles */
 .card {
-  background: white;
+  background: var(--card-bg);
   border-radius: var(--radius-lg);
   padding: var(--spacing-xl);
   box-shadow: var(--shadow-md);
-  transition: box-shadow var(--transition-base);
+  transition: all var(--transition-base);
+  border: 1px solid rgba(217, 119, 6, 0.1);
 }
 
 .card:hover {
   box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  border-color: rgba(217, 119, 6, 0.2);
 }
 
 /* Form elements */
